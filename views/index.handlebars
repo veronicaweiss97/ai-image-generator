@@ -1,1 +1,39 @@
-<h1>Hello</h1>
+<h1 class='color-info'>Try Yourself!</h1>
+
+<form action='/' method='post'>
+    <label for='prompt' class='form-label'>What Image do you want to see?</label>
+    <input
+        type='text'
+        class='form-control mb-2'
+        placeholder='Enter image params'
+        required
+        name='prompt'
+    />
+
+    <label for='size' class='form-label'>What size do you want your image to be?</label>
+    <select name='size' class='form-control mb-2 form-select'>
+        <option value='256x256'>Small</option>
+        <option value='512x512'>Medium</option>
+        <option value='1024x1024'>Large</option>
+    </select>
+
+    <label for='number' class='form-label'>How many images do you want to
+        receive?</label>
+    <input type='number' class='form-control mb-2' name='number' value='1' />
+
+    <button
+        type='submit'
+        class='btn btn-info'
+        style='color: #fff;'
+    >Generate</button>
+</form>
+
+{{#if images}}
+
+    <div class='row'>
+        {{#each images}}
+            <img src='{{this.url}}' class='img-fluid rounded' />
+        {{/each}}
+    </div>
+
+{{/if}}
